@@ -27,7 +27,7 @@
     --text-accent: #ffffff;
     --text-accent-pink: #dfb9d0;
     --accent-color-bg: #f1c9e2;
-    --accent-color-bg-dark: #cf91b5;
+    --accent-color-bg-dark: #c087a8;
     --links__accent-color: #000000;
     --image-hover: #ffffff;
     --image-wrapper-bg: #ffffff;
@@ -93,7 +93,7 @@ body.dark-mode {
 }
 
 .element__item::after {
-    content: attr(data-experience);
+    content: attr(info);
     position: absolute;
     top: 100%;
     left: 50%;
@@ -167,7 +167,6 @@ li {
     color: var(--accent-color-bg-dark);
     text-shadow: 0 2px 6px var(--accent-color-bg-dark);
 }
-
 /* ------------------------------------------------------------------------ */
 
 /* NAVIGATION BAR */
@@ -282,6 +281,7 @@ body.dark-mode .icon-sun {
 body.dark-mode .icon-moon {
     display: inline-block;
 }
+/* ------------------------------------------------------------------------ */
 
 /* ABOUT ME */
 #about-me {
@@ -317,12 +317,12 @@ body.dark-mode .icon-moon {
 
 .about-me__picture--mask:hover {
     transform: scale(1.10);
-    cursor: pointer;
+    cursor: default;
 }
 
 .about-me__picture--mask:active {
     transform: scale(1.05);
-    cursor: pointer;
+    cursor: default;
     box-shadow: 0 8px 16px var(--accent-color-bg);
 }
 
@@ -333,6 +333,7 @@ body.dark-mode .icon-moon {
 
 .about-me__info--paragraph {
     text-align: center;
+    font-size: 15px;
     padding: 14px;
     margin: 18px;
     box-shadow: 0 8px 16px var(--accent-color-bg-dark);
@@ -341,13 +342,15 @@ body.dark-mode .icon-moon {
 }
 
 .about-me__info--paragraph:hover {
+    font-size: 17px;
     transform: scale(1.025);
-    cursor: pointer;
+    cursor: default;
 }
 
 .about-me__info--paragraph:active {
+    font-size: 17px;
     transform: scale(1.0);
-    cursor: pointer;
+    cursor: default;
 }
 
 .about-me__links {
@@ -399,7 +402,6 @@ body.dark-mode .icon-moon {
     filter: drop-shadow(0 4px 8px var(--accent-color-bg-dark));
     border-radius: 45px;
 }
-
 /* ------------------------------------------------------------------------ */
 
 /* LANGUAGES */
