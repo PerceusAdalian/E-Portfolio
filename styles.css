@@ -78,9 +78,11 @@ body.dark-mode {
 
 /* GLOBAL FIELDS */
 .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     color: var(--text-default);
     background-color: var(--bg-content);
-    min-height: 100%;
 }
 
 .container {
@@ -446,3 +448,4 @@ body.dark-mode .icon-moon {
     justify-content: center;
     align-items: center;
 }
+
