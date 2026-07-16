@@ -1,5 +1,446 @@
+/*
+    Style Sheet for Perceus' Portfolio
+    Author: Perceus Willy
+    Written: 7/15/2026
+    Description: General styles and configurations included here. 
+*/
+
+/* IMPORTS & GENERAL CONFIG */
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     padding:0;
     margin: 0 auto;
     box-sizing: border-box;
+}
+/* ------------------------------------------------------------------------ */
+
+
+/* COLORS */
+:root {
+    --bg-content: #ffffff;
+    --bg-content-accent: #ebebeb;
+    --border-accent: #808080;
+    --bg-gradient-start: #f1c9e2;
+    --bg-gradient-end: #cf91b5;
+    --text-default: #242424; /* Effectively Black */
+    --text-accent: #ffffff;
+    --text-accent-pink: #dfb9d0;
+    --accent-color-bg: #f1c9e2;
+    --accent-color-bg-dark: #cf91b5;
+    --links__accent-color: #000000;
+    --image-hover: #ffffff;
+    --image-wrapper-bg: #ffffff;
+}
+
+body.dark-mode {
+    --bg-content: #242424;
+    --bg-content-accent: #242424;
+    --border-accent: #ffffff;
+    --bg-gradient-start: #808080;
+    --bg-gradient-end: #242424;
+    --text-default: #ffffff;
+    --text-accent: #242424;
+    --text-accent-pink: #f1c9e2;
+    --accent-color-bg: #cf91b5;
+    --accent-color-bg-dark: #f1c9e2;
+    --links__accent-color: #ffffff;
+    --image-hover: #808080;
+    --image-wrapper-bg: #808080;
+}
+/* ------------------------------------------------------------------------ */
+
+/* FONTS & CONFIG */
+.quantico-regular {
+  font-family: "Quantico", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.quantico-bold {
+  font-family: "Quantico", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.quantico-regular-italic {
+  font-family: "Quantico", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.quantico-bold-italic {
+  font-family: "Quantico", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+/* ------------------------------------------------------------------------ */
+
+/* GLOBAL FIELDS */
+.content {
+    color: var(--text-default);
+    background-color: var(--bg-content);
+    min-height: 100%;
+}
+
+.container {
+    padding: 50px 0;
+}
+
+.element__item {
+    position: relative;
+    display: inline-flex;
+}
+
+.element__item::after {
+    content: attr(data-experience);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    background-color: var(--accent-color-bg-dark);
+    color: var(--text-accent);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px;
+    border-radius: 10px;
+    white-space: nowrap;
+    box-shadow: 0 3px 6px var(--accent-color-bg-dark);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+    z-index: 2000;
+}
+
+.element__item:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(10px);
+}
+
+section:nth-child(even) {
+    background-color: var(--bg-content-accent);
+}
+
+.section__title {
+    margin-bottom: 20px;
+}
+
+h1, h2, h3, h4, h5, h6, span {
+    color: var(--text-default);
+    text-align: center;
+    line-height: 1.25;
+}
+
+h1 {
+   font-size: 36px; 
+}
+
+p {
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+li {
+    list-style-type: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.row {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.background {
+    background: linear-gradient(180deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    min-height: 100vh;
+}
+
+.text--pink {
+    color: var(--accent-color-bg-dark);
+    text-shadow: 0 2px 6px var(--accent-color-bg-dark);
+}
+
+/* ------------------------------------------------------------------------ */
+
+/* NAVIGATION BAR */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    min-width: 1000px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border-accent);
+}
+
+.nav__link--list {
+    display: flex;
+    align-items: center;
+    margin: 30px;
+}
+
+.nav__link--list li {
+    margin: 0;
+}
+
+.nav__link--anchor {
+    margin: 0 12px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-default);
+}
+
+.nav__link--anchor-primary {
+    vertical-align: middle;
+    display: inline-block;
+    background-color: var(--accent-color-bg);
+    box-shadow: 0 8px 16px var(--accent-color-bg-dark);
+    padding: 8px 20px;
+    border-radius: 50px;
+    color: var(--text-default);
+    transition: 0.3s ease;
+}
+
+.nav__link--anchor-primary:hover {
+    transform: scale(1.10);
+    cursor: pointer;
+}
+
+.nav__link--anchor-primary:active {
+    background-color: var(--accent-color-bg-dark);
+    transform: scale(1.05);
+}
+
+.personal__logo {
+    background-color: var(--accent-color-bg);
+    box-shadow: 0 8px 16px var(--accent-color-bg-dark);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 24px;
+    color: var(--text-default);
+    text-decoration: none;
+    margin: 30px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.personal__logo:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.personal__logo:active {
+    background-color: var(--accent-color-bg-dark);
+    transform: scale(1);
+    cursor: pointer;
+}
+
+.mode-toggle-button {
+    background-color: var(--accent-color-bg);
+    border: none;
+    box-shadow: 0 4px 8px var(--accent-color-bg-dark);
+    transform: translateX(-15px);
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 12px;
+    color: var(--text-default);
+    text-decoration: none;
+    margin: 20px;
+    font-weight: bold;
+    transition: 0.5s ease;
+}
+
+.mode-toggle-button:hover {
+    transform: translateX(15px);
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.mode-toggle-button:active {
+    background-color: var(--accent-color-bg-dark);
+    transform: scale(1.35);
+    cursor: pointer;
+}
+
+.icon-moon {
+    display: none;
+}
+
+body.dark-mode .icon-sun {
+    display: none;
+}
+
+body.dark-mode .icon-moon {
+    display: inline-block;
+}
+
+/* ABOUT ME */
+#about-me {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-me__info {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-me__info--container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    transition: 0.3s ease;
+}
+
+.about-me__picture--mask {
+    margin-top: 23px;
+    margin-bottom: 13px;
+    width: 100px;
+    height: 100px;
+    border-radius: 15%;
+    overflow: hidden;
+    box-shadow: 0 8px 16px var(--accent-color-bg-dark);
+    transition: 0.3s ease;
+}
+
+.about-me__picture--mask:hover {
+    transform: scale(1.10);
+    cursor: pointer;
+}
+
+.about-me__picture--mask:active {
+    transform: scale(1.05);
+    cursor: pointer;
+    box-shadow: 0 8px 16px var(--accent-color-bg);
+}
+
+.about-me__picture {
+    width: 100%;
+    transform: scale(1.5);
+}
+
+.about-me__info--paragraph {
+    text-align: center;
+    padding: 14px;
+    margin: 18px;
+    box-shadow: 0 8px 16px var(--accent-color-bg-dark);
+    border-radius: 15px;
+    transition: 0.3s ease;
+}
+
+.about-me__info--paragraph:hover {
+    transform: scale(1.025);
+    cursor: pointer;
+}
+
+.about-me__info--paragraph:active {
+    transform: scale(1.0);
+    cursor: pointer;
+}
+
+.about-me__links {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+    box-shadow: 0 8px 16px var(--accent-color-bg-dark);
+    border-radius: 15px;
+}
+
+.about-me__link {
+    text-decoration: none;
+    font-size: 20px;
+    color: var(--links__accent-color);
+}
+
+.about-me__link--divider {
+    background-color: var(--accent-color-bg);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 4px 3px;
+    transition: 0.3s ease;
+}
+
+.about-me__link--divider:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+    box-shadow: 0 4px 8px var(--accent-color-bg-dark);
+}
+
+.about-me__link--divider:active {
+    background-color: var(--accent-color-bg-dark);
+    transform: scale(1.25);
+    cursor: pointer;
+}
+
+.about-me__img--container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.about-me__img {
+    width: 100%;
+    transform: scale(0.90);
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px var(--accent-color-bg-dark);
+    filter: drop-shadow(0 4px 8px var(--accent-color-bg-dark));
+    border-radius: 45px;
+}
+
+/* ------------------------------------------------------------------------ */
+
+/* LANGUAGES */
+.language {
+    background: var(--image-wrapper-bg);
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 3px 6px var(--accent-color-bg-dark);
+    border-radius: 16px;
+}
+
+.language__img {
+    width: 100%;
+    max-width: 350px;
+    margin: 10px;
+    padding: 10px 5px;
+    transition: 0.5s ease;
+}
+
+.language__img:hover {
+    background: var(--image-hover);
+    z-index: 1000;
+    transform: scale(1.5);
+    box-shadow: 0 8px 16px var(--accent-color-bg-dark);
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.language__img:active {
+    background: var(--image-hover);
+    z-index: 1000;
+    transform: scale(1.40);
+    box-shadow: 0 4px 8px var(--accent-color-bg);
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.language__img--wrapper {
+    z-index: 15;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
