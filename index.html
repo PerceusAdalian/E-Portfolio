@@ -12,7 +12,10 @@
     <section id="about-me" class="background">
         <div class="content">
             <nav>
-                <a href="#index" class="personal__logo">Perceus Willy</a>
+                <a href="#footer" class="nav__brand bob-on-hover">
+                    <img src="./resources/adalian.PNG" class="hero-figure" alt="">
+                </a>
+
                 <ul class="nav__link--list">
                     <li>
                         <a href="#languages" class="
@@ -29,11 +32,9 @@
                         ">Projects</a>
                     </li>
                     <li>
-                        <a href="#contact" class="
+                        <a href="#contact" id="contact-trigger" class="
                         nav__link--anchor
                         nav__link--anchor-primary
-                        link__hover-effect
-                        link__hover-effect--black
                         ">Contact</a>
                     </li>
                     <li>
@@ -54,7 +55,7 @@
                             Hey! I'm <span class="text--pink">Percy Willy</span> 👋
                         </h1>
                         <p class="about-me__info--paragraph">
-                            I'm a <strong class="text--pink">self taught programmer</strong> and aspiring <strong class="text--pink">frontend software engineer</strong> with a strong passion
+                            I'm a self taught programmer and aspiring frontend software engineer with a strong passion
                             for making cool things and learning new skills along the way. <br>I build fast, reliable, and scalable
                             applications for users and developers alike.
                         </p>
@@ -82,7 +83,7 @@
                             </div>
                             <div class="about-me__link--divider">
                                 <div class="element__item" info="Resume">
-                                    <a href="https://drive.google.com/file/d/1HyOUbbx7GmMKsHSaUQyx80vRJ87mh1o6/view?usp=sharing" class="about-me__link" alt="Resume Link" target="_blank">
+                                    <a href="./resources/atsresume.pdf" class="about-me__link" alt="Resume Link" target="_blank">
                                         <i class="fa-solid fa-file"></i>
                                     </a>
                                 </div>
@@ -206,11 +207,69 @@
         </div>
     </section>
 
-    <footer>
-        <div class="row">
-            
+    <footer id="footer">
+        <div class="row footer__row">
+            <figure>
+                <a href="#" class="footer__anchor">
+                    <img src="./resources/adalian.PNG" class="hero-figure--large bob-on-hover" alt="">
+                </a>
+            </figure>
+            <div class="footer__social--list">
+                <a href="https://github.com/PerceusAdalian" class="
+                    footer__social--link
+                    link__hover-effect
+                    link__hover-effect--white
+                " target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/perceus-willy-a71392333/" class="
+                    footer__social--link
+                    link__hover-effect
+                    link__hover-effect--white
+                " target="_blank">LinkedIn</a>
+                <a href="mailto: davidmwilly@gmail.com" class="
+                    footer__social--link
+                    link__hover-effect
+                    link__hover-effect--white
+                " target="_blank">Email</a>
+                <a href="./resources/atsresume.pdf" class="
+                    footer__social--link
+                    link__hover-effect
+                    link__hover-effect--white
+                " target="_blank">Resume</a>
+            </div>
+            <div class="footer__copyright">&copy; Copyright Perceus Willy 2026. All rights reserved.</div>
         </div>
     </footer>
+
+    <div id="contact-modal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close contact modal">&times;</button>
+            <h2 class="modal-title">Let's <strong class="text--pink">Connect</strong></h2>
+            <p class="modal-text">I'd love to hear from you!</p>
+            <p class="modal-text">Go ahead and fill this out. You'll be redirected to your email app of choice, ready to send.</p>
+            <form id="contact-form" class="modal-form" novalidate>
+                <div class="modal-form__row">
+                    <input type="text" id="contact-first-name" class="modal-form__input" placeholder="First Name *" required>
+                    <input type="text" id="contact-last-name" class="modal-form__input" placeholder="Last Name *" required>
+                </div>
+                <input type="email" id="contact-email" class="modal-form__input" placeholder="Email *" required>
+                <input type="tel" id="contact-phone" class="modal-form__input" placeholder="Phone Number (optional)">
+                <textarea id="contact-message" class="modal-form__input modal-form__textarea" placeholder="Message (optional)" rows="4"></textarea>
+                <button type="submit" class="modal-form__submit">Send</button>
+            </form>
+            <div class="modal-divider"><span>or reach out directly</span></div>
+            <div class="modal-links modal-links--compact">
+                <a href="mailto:davidmwilly@gmail.com" class="modal-link modal-link--icon" target="_blank" aria-label="Email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/perceus-willy-a71392333/" class="modal-link modal-link--icon" target="_blank" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/PerceusAdalian" class="modal-link modal-link--icon" target="_blank" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 
 <script src="./script.js"></script>
 </body>
